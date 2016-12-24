@@ -68,8 +68,6 @@ namespace Product_Analyzer
             //    // productList_.Add(myProduct);
         }
 
-        }
-
         FAQ faqPage = new FAQ();
         private void fAQToolStripMenuItem_Click(object sender, EventArgs e)
         {
