@@ -40,14 +40,18 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialogImport = new System.Windows.Forms.OpenFileDialog();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Rank = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productData = new System.Windows.Forms.DataGridView();
+            this.listing = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.mainMenuStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productData)).BeginInit();
             this.SuspendLayout();
             // 
             // mainMenuStrip
             // 
+            this.mainMenuStrip.BackColor = System.Drawing.SystemColors.ControlLight;
             this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.analyzeToolStripMenuItem,
@@ -55,7 +59,7 @@
             this.aboutToolStripMenuItem});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(501, 24);
+            this.mainMenuStrip.Size = new System.Drawing.Size(1131, 24);
             this.mainMenuStrip.TabIndex = 0;
             this.mainMenuStrip.Text = "menuStrip1";
             // 
@@ -113,7 +117,7 @@
             // fAQToolStripMenuItem
             // 
             this.fAQToolStripMenuItem.Name = "fAQToolStripMenuItem";
-            this.fAQToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+            this.fAQToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
             this.fAQToolStripMenuItem.Text = "FAQ";
             this.fAQToolStripMenuItem.Click += new System.EventHandler(this.fAQToolStripMenuItem_Click);
             // 
@@ -131,34 +135,54 @@
             this.infoToolStripMenuItem.Size = new System.Drawing.Size(95, 22);
             this.infoToolStripMenuItem.Text = "Info";
             // 
-            // dataGridView1
+            // productData
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Rank});
-            this.dataGridView1.Location = new System.Drawing.Point(78, 117);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView1.TabIndex = 1;
+            this.productData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.productData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.listing,
+            this.product,
+            this.brand});
+            this.productData.Location = new System.Drawing.Point(199, 27);
+            this.productData.Name = "productData";
+            this.productData.Size = new System.Drawing.Size(932, 539);
+            this.productData.TabIndex = 1;
             // 
-            // Rank
+            // listing
             // 
-            this.Rank.HeaderText = "Rank";
-            this.Rank.Name = "Rank";
+            this.listing.HeaderText = "Listing";
+            this.listing.Name = "listing";
+            // 
+            // product
+            // 
+            this.product.HeaderText = "Product";
+            this.product.Name = "product";
+            // 
+            // brand
+            // 
+            this.brand.HeaderText = "Brand";
+            this.brand.Name = "brand";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(250, 71);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(514, 318);
+            this.flowLayoutPanel1.TabIndex = 2;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(501, 343);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1131, 565);
+            this.Controls.Add(this.productData);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.mainMenuStrip);
             this.MainMenuStrip = this.mainMenuStrip;
             this.Name = "Form1";
             this.Text = "Form1";
             this.mainMenuStrip.ResumeLayout(false);
             this.mainMenuStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,8 +207,11 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialogImport;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Rank;
+        private System.Windows.Forms.DataGridView productData;
+        private System.Windows.Forms.DataGridViewTextBoxColumn listing;
+        private System.Windows.Forms.DataGridViewTextBoxColumn product;
+        private System.Windows.Forms.DataGridViewTextBoxColumn brand;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
 
