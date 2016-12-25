@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.FileIO;
 
 
 
@@ -51,6 +51,7 @@ namespace Product_Analyzer
             try
             {
                 result = Convert.ToDouble(testString);
+                MessageBox.Show("Convered the string " + testString + " to a double!");
             }
             catch
             {
@@ -96,6 +97,47 @@ namespace Product_Analyzer
             faqPage.Show();
         }
 
+        private void testCreateArray(string path_, ref List<Product> productList_)
+        {
+            MessageBox.Show("Lets practice son");
+            const int COLUMN_LIMIT = 12;
+
+            using (TextFieldParser parser = new TextFieldParser(path_))
+            {
+                parser.TextFieldType = FieldType.Delimited;
+                parser.SetDelimiters(",");
+                while (!parser.EndOfData)
+                {
+                    //Processing row
+                    string[] fields = parser.ReadFields();
+                    productData.ColumnCount = COLUMN_LIMIT;
+                    var headers = new string[COLUMN_LIMIT];
+
+                    //foreach (DataGridViewColumn column in productData.Columns)
+                    //{
+                    //    foreach (string field in fields)
+                    //    {
+                    //        headers[0] = field;
+                    //    }
+
+                    //    for (int i = 0; i < COLUMN_LIMIT; i++)
+                    //    {
+                    //        productData.Columns[i].HeaderText = headers[i];
+                    //    }
+                    //    column.HeaderText = "Bad";
+                    //}
+                  
+                    int i = 0;
+                    foreach (string field in fields)
+                    {
+                        MessageBox.Show(field);
+                    }
+                }
+            }
+
+
+        }
+
         //Imports csv file
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -107,7 +149,9 @@ namespace Product_Analyzer
             {
                 string strfilename = openFileDialogImport.InitialDirectory + openFileDialogImport.FileName;
 
-                importFile(strfilename, ref productList);
+                testCreateArray(strfilename, ref productList);
+                //UnComment once practice code is done!
+                //importFile(strfilename, ref productList);
 
                 //MessageBox.Show(productList[0].toString(), "Header");
             }
