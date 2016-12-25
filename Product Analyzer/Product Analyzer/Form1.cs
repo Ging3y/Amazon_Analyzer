@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.IO;
 using Microsoft.VisualBasic;
 
+
+
 namespace Product_Analyzer
 {
     public partial class Form1 : Form
@@ -35,6 +37,25 @@ namespace Product_Analyzer
             int reviews;
             double rating;
             string type;
+
+            DataTable t = new DataTable();
+            string[] test = {"1","2","3","4","5"};
+            //productData.DataSource = test;
+            //productData.Columns.Add("Me");
+            string[] test_product = { "1", "Compact Survival Kit", "Upper Heights Gear", "1", "7", "29.99" };
+            productData.Rows.Add(test_product);
+            productData.Update();
+
+            string testString = "24.44";
+            double result;
+            try
+            {
+                result = Convert.ToDouble(testString);
+            }
+            catch
+            {
+                MessageBox.Show("There was an erro");
+            }
 
            // foreach(string element in values)
            

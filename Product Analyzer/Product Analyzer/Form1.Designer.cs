@@ -41,10 +41,13 @@
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialogImport = new System.Windows.Forms.OpenFileDialog();
             this.productData = new System.Windows.Forms.DataGridView();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.listing = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.product = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.sellers = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.variations = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mainMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productData)).BeginInit();
             this.SuspendLayout();
@@ -141,11 +144,21 @@
             this.productData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.listing,
             this.product,
-            this.brand});
+            this.brand,
+            this.sellers,
+            this.variations,
+            this.price});
             this.productData.Location = new System.Drawing.Point(199, 27);
             this.productData.Name = "productData";
             this.productData.Size = new System.Drawing.Size(932, 539);
             this.productData.TabIndex = 1;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(250, 71);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(514, 318);
+            this.flowLayoutPanel1.TabIndex = 2;
             // 
             // listing
             // 
@@ -162,12 +175,20 @@
             this.brand.HeaderText = "Brand";
             this.brand.Name = "brand";
             // 
-            // flowLayoutPanel1
+            // sellers
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(250, 71);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(514, 318);
-            this.flowLayoutPanel1.TabIndex = 2;
+            this.sellers.HeaderText = "Sellers";
+            this.sellers.Name = "sellers";
+            // 
+            // variations
+            // 
+            this.variations.HeaderText = "Variations";
+            this.variations.Name = "variations";
+            // 
+            // price
+            // 
+            this.price.HeaderText = "Price";
+            this.price.Name = "price";
             // 
             // Form1
             // 
@@ -208,10 +229,13 @@
         private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialogImport;
         private System.Windows.Forms.DataGridView productData;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn listing;
         private System.Windows.Forms.DataGridViewTextBoxColumn product;
         private System.Windows.Forms.DataGridViewTextBoxColumn brand;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sellers;
+        private System.Windows.Forms.DataGridViewTextBoxColumn variations;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price;
     }
 }
 
