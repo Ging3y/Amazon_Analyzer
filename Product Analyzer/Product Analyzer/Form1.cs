@@ -42,21 +42,21 @@ namespace Product_Analyzer
             string[] test = {"1","2","3","4","5"};
             //productData.DataSource = test;
             //productData.Columns.Add("Me");
-            string[] test_product = { "1", "Compact Survival Kit", "Upper Heights Gear", "1", "7", "29.99" };
+            string[] test_product = { "1", "Compact Survival Kit", "Upper Heights Gear", "1", "7", "29.99"};
             productData.Rows.Add(test_product);
             productData.Update();
 
-            string testString = "24.44";
-            double result;
-            try
-            {
-                result = Convert.ToDouble(testString);
-                MessageBox.Show("Convered the string " + testString + " to a double!");
-            }
-            catch
-            {
-                MessageBox.Show("There was an erro");
-            }
+            //string testString = "24.44";
+            //double result;
+            //try
+            //{
+            //    result = Convert.ToDouble(testString);
+            //    MessageBox.Show("Convered the string " + testString + " to a double!");
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("There was an erro");
+            //}
 
            // foreach(string element in values)
            
@@ -97,45 +97,47 @@ namespace Product_Analyzer
             faqPage.Show();
         }
 
-        private void testCreateArray(string path_, ref List<Product> productList_)
+        private void getHeaders(string path_, ref List<Product> productList_)
         {
-            MessageBox.Show("Lets practice son");
-            const int COLUMN_LIMIT = 12;
 
+            const int COLUMN_LIMIT = 13;
+
+            //Opens Parser 
             using (TextFieldParser parser = new TextFieldParser(path_))
             {
+                //Sets to CSV
                 parser.TextFieldType = FieldType.Delimited;
                 parser.SetDelimiters(",");
-                while (!parser.EndOfData)
+
+                //Sets data sheet to length of catagories, 
+                productData.ColumnCount = COLUMN_LIMIT;
+                var headers = new string[COLUMN_LIMIT];
+                var col_headers = new string[COLUMN_LIMIT];
+
+                //Reads first line as string, seperates into an array
+                string firstLine;
+                using (StreamReader sr = new StreamReader(path_))
                 {
-                    //Processing row
-                    string[] fields = parser.ReadFields();
-                    productData.ColumnCount = COLUMN_LIMIT;
-                    var headers = new string[COLUMN_LIMIT];
+                    firstLine = sr.ReadLine();
+                    headers = firstLine.Split(new string[] { "," }, StringSplitOptions.None);
+                }
 
-                    //foreach (DataGridViewColumn column in productData.Columns)
-                    //{
-                    //    foreach (string field in fields)
-                    //    {
-                    //        headers[0] = field;
-                    //    }
+                //Cleans out char '"' from array
+                for (int i = 0; i < headers.Count(); i++)
+                {
+                    headers[i] = headers[i].Trim(new char[] { '"' });
+                }
 
-                    //    for (int i = 0; i < COLUMN_LIMIT; i++)
-                    //    {
-                    //        productData.Columns[i].HeaderText = headers[i];
-                    //    }
-                    //    column.HeaderText = "Bad";
-                    //}
-                  
-                    int i = 0;
-                    foreach (string field in fields)
+                //Sets each header to corresponding string
+                foreach (DataGridViewColumn column in productData.Columns)
+                {
+                    
+                    for (int i = 0; i < COLUMN_LIMIT; i++)
                     {
-                        MessageBox.Show(field);
+                        productData.Columns[i].HeaderText = headers[i];
                     }
                 }
             }
-
-
         }
 
         //Imports csv file
@@ -149,7 +151,9 @@ namespace Product_Analyzer
             {
                 string strfilename = openFileDialogImport.InitialDirectory + openFileDialogImport.FileName;
 
-                testCreateArray(strfilename, ref productList);
+                //Sets Headers from CSV File
+                getHeaders(strfilename, ref productList);
+
                 //UnComment once practice code is done!
                 //importFile(strfilename, ref productList);
 
